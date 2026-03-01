@@ -23,7 +23,7 @@ export const ServerStatusProvider = ({ children }) => {
     
     try {
       // Try to call health endpoint
-      await fetch('/api/health', {
+      await fetch('https://sems-backend-s2my.onrender.com/api/health', {
         method: 'GET',
         headers: { 
           'Accept': 'application/json' 
