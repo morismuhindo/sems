@@ -81,7 +81,7 @@ const SEMSContactForm = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post('/api/contact/contact', formData);
+      const response = await axios.post('https://sems-backend-s2my.onrender.com/api/contact/contact', formData);
       
       if (response.data.success) {
         setSuccess(true);
