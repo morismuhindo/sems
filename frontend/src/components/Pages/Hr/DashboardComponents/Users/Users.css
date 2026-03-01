@@ -1,0 +1,1794 @@
+.users-dashboard-UU {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+  padding: 1.5rem;
+}
+
+/* ============================================
+   DASHBOARD HEADER
+   ============================================ */
+
+/* Top navigation bar with bottom border */
+.dashboard-header-UU {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Left side of header */
+.header-left-UU {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Right side of header containing action buttons */
+.header-right-UU {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Refresh button styling */
+.refresh-btn-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, #38bdf8, #34d399);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+}
+
+.refresh-btn-UU:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.refresh-btn-UU:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinning animation for refresh icon during loading */
+.refresh-icon-UU {
+  width: 18px;
+  height: 18px;
+}
+
+.spinning-UU {
+  animation: spin-UU 1s linear infinite;
+}
+
+@keyframes spin-UU {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Export CSV button styling */
+.export-btn-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, #0ea5e9, #10b981);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-btn-UU:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+}
+
+.export-icon-UU {
+  width: 18px;
+  height: 18px;
+}
+
+/* ============================================
+   STATISTICS GRID
+   ============================================ */
+
+/* Grid layout for statistic cards */
+.stats-grid-UU {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual statistic card styling */
+.stat-card-UU {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.stat-card-UU:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.1);
+  border-color: #0ea5e9;
+}
+
+/* Content layout within statistic cards */
+.stat-content-UU {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Statistic label styling */
+.stat-label-UU {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Statistic value styling */
+.stat-value-UU {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+/* Icon containers for statistic cards with specific gradient backgrounds */
+.stat-icon-UU {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Specific icon background colors for different statistic types */
+.stat-icon-total-UU {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+}
+
+.stat-icon-hr-UU {
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  color: white;
+}
+
+.stat-icon-hod-UU {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+}
+
+.stat-icon-attendancemanager-UU {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+}
+
+.stat-icon-employee-UU {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+}
+
+.stat-icon-active-UU {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: white;
+}
+
+.stat-icon-inactive-UU {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  color: white;
+}
+
+/* Standard icon sizing */
+.icon-medium-UU {
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   SEARCH AND FILTER SECTION
+   ============================================ */
+
+/* Main container for search and filter controls */
+.search-filter-section-UU {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+/* Top row containing search input and filter toggle */
+.filter-section-UU {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Search container takes remaining space */
+.search-container-UU {
+  flex: 1;
+}
+
+/* Search input group with icon and clear button */
+.search-input-group-UU {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-UU {
+  position: absolute;
+  left: 1rem;
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+  z-index: 1;
+}
+
+.search-input-UU {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+}
+
+.search-input-UU:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.search-input-UU:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Clear search button positioned inside input */
+.clear-search-btn-UU {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-search-btn-UU:hover {
+  color: #ef4444;
+}
+
+.clear-icon-UU {
+  width: 16px;
+  height: 16px;
+}
+
+/* Filter toggle button to show/hide filter controls */
+.filter-toggle-btn-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: #f0f9ff;
+  border: 2px solid #0ea5e9;
+  border-radius: 0.75rem;
+  color: #0ea5e9;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-toggle-btn-UU:hover:not(:disabled) {
+  background: #e0f2fe;
+  transform: translateY(-1px);
+}
+
+.filter-toggle-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.filter-toggle-icon-UU {
+  width: 18px;
+  height: 18px;
+}
+
+/* Badge showing number of active filters */
+.active-filter-count-UU {
+  background: #0ea5e9;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   FILTER CONTROLS (EXPANDED SECTION)
+   ============================================ */
+
+/* Grid layout for filter controls when expanded */
+.filter-controls-UU {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  animation: fadeIn-UU 0.3s ease;
+}
+
+/* Individual filter group (role, status, sort) */
+.filter-group-UU {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-label-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.filter-label-icon-UU {
+  width: 16px;
+  height: 16px;
+  color: #0ea5e9;
+}
+
+/* Filter dropdown select styling */
+.filter-select-UU {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-select-UU:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.filter-select-UU:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Sort controls container with dropdown and order button */
+.sort-controls-UU {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sort-select-UU {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  background: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sort-select-UU:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.sort-select-UU:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Sort order toggle button */
+.sort-order-btn-UU {
+  padding: 0.75rem;
+  background: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 0.75rem;
+  color: #059669;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.sort-order-btn-UU:hover {
+  background: #d1fae5;
+}
+
+.sort-order-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Filter action buttons container */
+.filter-actions-UU {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+/* Clear all filters button */
+.clear-filters-btn-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-filters-btn-UU:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.clear-filters-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.clear-filters-icon-UU {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   RESULTS SUMMARY
+   ============================================ */
+
+/* Summary bar showing filter status and result count */
+.results-summary-UU {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.results-count-UU {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.active-filters-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0ea5e9;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.active-filters-icon-UU {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   USERS TABLE CONTAINER
+   ============================================ */
+
+/* Main table container with card styling */
+.users-table-container-UU {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+/* Table header with title and count */
+.table-header-UU {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.table-title-UU {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.table-count-UU {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Loading state container */
+.loading-container-UU {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.loading-spinner-UU {
+  width: 48px;
+  height: 48px;
+  color: #0ea5e9;
+  animation: spin-UU 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loading-text-UU {
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.loading-subtext-UU {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* Table wrapper for horizontal scrolling */
+.table-wrapper-UU {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+/* Main users table */
+.users-table-UU {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px; /* Ensures all columns are visible */
+}
+
+/* Table header styling */
+.table-header-row-UU {
+  background: #f0f9ff;
+}
+
+.table-header-cell-UU {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+  border-bottom: 2px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+/* Table row styling with hover effect */
+.table-row-UU {
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.table-row-UU:hover {
+  background: #f9fafb;
+}
+
+.table-cell-UU {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   USER INFORMATION CELLS
+   ============================================ */
+
+/* User info cell with avatar and name */
+.user-info-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar-UU {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #38bdf8, #34d399);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.avatar-icon-UU {
+  width: 20px;
+  height: 20px;
+}
+
+.user-details-UU {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name-UU {
+  font-weight: 500;
+  color: #111827;
+}
+
+.user-department-UU {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.125rem;
+}
+
+/* ============================================
+   ROLE BADGES
+   ============================================ */
+
+/* Role badge styling with specific colors for each role */
+.role-badge-UU {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.role-hr-UU {
+  background: #f0f9ff;
+  color: #0ea5e9;
+  border: 1px solid #38bdf8;
+}
+
+.role-hod-UU {
+  background: #faf5ff;
+  color: #8b5cf6;
+  border: 1px solid #c4b5fd;
+}
+
+.role-attendancemanager-UU {
+  background: #ffedd5;
+  color: #ea580c;
+  border: 1px solid #fdba74;
+}
+
+.role-employee-UU {
+  background: #f0fdf4;
+  color: #059669;
+  border: 1px solid #34d399;
+}
+
+.role-default-UU {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+/* ============================================
+   EMAIL CELL
+   ============================================ */
+
+.email-cell-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email-icon-UU {
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+}
+
+.email-text-UU {
+  color: #374151;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+
+/* Status badge styling for active/inactive users */
+.status-badge-UU {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Active status styling (green theme) */
+.status-bg-active-UU {
+  background: #f0fdf4;
+}
+
+.status-border-active-UU {
+  border: 1px solid #34d399;
+}
+
+.status-active-UU {
+  color: #059669;
+}
+
+/* Inactive status styling (red theme) */
+.status-bg-inactive-UU {
+  background: #fef2f2;
+}
+
+.status-border-inactive-UU {
+  border: 1px solid #fca5a5;
+}
+
+.status-inactive-UU {
+  color: #dc2626;
+}
+
+.status-icon-UU {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   EMPLOYEE CODE BADGE
+   ============================================ */
+
+.employee-code-badge-UU {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: #f0f9ff;
+  border: 1px solid #38bdf8;
+  border-radius: 0.5rem;
+  color: #0ea5e9;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.code-icon-UU {
+  width: 12px;
+  height: 12px;
+}
+
+.no-code-UU {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Created date styling */
+.created-date-UU {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+
+/* Action buttons container in table rows */
+.action-buttons-UU {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn-UU {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* View button (blue theme) */
+.view-btn-UU {
+  background: #f0f9ff;
+  color: #0ea5e9;
+}
+
+.view-btn-UU:hover:not(:disabled) {
+  background: #e0f2fe;
+  transform: translateY(-1px);
+}
+
+/* Edit button (green theme) */
+.edit-btn-UU {
+  background: #f0fdf4;
+  color: #10b981;
+}
+
+.edit-btn-UU:hover:not(:disabled) {
+  background: #dcfce7;
+  transform: translateY(-1px);
+}
+
+/* Delete button (red theme) */
+.delete-btn-UU {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.delete-btn-UU:hover:not(:disabled) {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+.action-icon-UU {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   NO RESULTS STATE
+   ============================================ */
+
+/* Empty state when no users match filters */
+.no-results-UU {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.no-results-content-UU {
+  max-width: 320px;
+}
+
+.no-results-icon-UU {
+  width: 64px;
+  height: 64px;
+  color: #9ca3af;
+  margin: 0 auto 1rem;
+}
+
+.no-results-title-UU {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.no-results-text-UU {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.reset-filters-btn-UU {
+  padding: 0.625rem 1.5rem;
+  background: linear-gradient(135deg, #0ea5e9, #10b981);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-filters-btn-UU:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+}
+
+/* ============================================
+   MODAL STYLES
+   ============================================ */
+
+/* Modal overlay (background) */
+.modal-overlay-UU {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal container */
+.modal-container-UU {
+  background: white;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: modalSlideIn-UU 0.3s ease;
+}
+
+@keyframes modalSlideIn-UU {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal header with title and close button */
+.modal-header-UU {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title-UU {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.modal-close-btn-UU {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn-UU:hover {
+  color: #374151;
+}
+
+.modal-close-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.close-icon-UU {
+  width: 20px;
+  height: 20px;
+}
+
+/* Modal body content area */
+.modal-body-UU {
+  padding: 1.5rem;
+}
+
+/* ============================================
+   VIEW USER MODAL
+   ============================================ */
+
+.view-modal-UU {
+  max-width: 600px;
+}
+
+/* User profile header with avatar and badges */
+.user-profile-header-UU {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.user-profile-avatar-UU {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #0ea5e9, #10b981);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.profile-avatar-icon-UU {
+  width: 32px;
+  height: 32px;
+}
+
+.user-profile-info-UU {
+  flex: 1;
+}
+
+.profile-name-UU {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.profile-badges-UU {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Two-column grid for user details */
+.user-details-grid-UU {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.detail-item-UU {
+  margin-bottom: 1rem;
+}
+
+.detail-label-UU {
+  display: block;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+}
+
+.detail-value-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.detail-icon-UU {
+  width: 16px;
+  height: 16px;
+  color: #0ea5e9;
+}
+
+/* ============================================
+   EDIT USER MODAL
+   ============================================ */
+
+/* Form group styling for edit modal */
+.form-group-UU {
+  margin-bottom: 1.25rem;
+}
+
+.form-label-UU {
+  display: block;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-input-UU {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  background: #f9fafb;
+}
+
+.form-input-UU:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.form-input-UU:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.form-select-UU {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  background: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-select-UU:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.form-select-UU:disabled {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Radio button group for status selection */
+.radio-group-UU {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.radio-label-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radio-input-UU {
+  width: 18px;
+  height: 18px;
+  accent-color: #0ea5e9;
+}
+
+.radio-text-UU {
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+/* Password change section */
+.password-section-UU {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.section-title-UU {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.password-fields-UU {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-hint-UU {
+  color: #9ca3af;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Modal footer with action buttons */
+.modal-footer-UU {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.cancel-btn-UU {
+  padding: 0.625rem 1.5rem;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn-UU:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.cancel-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.update-btn-UU {
+  padding: 0.625rem 1.5rem;
+  background: linear-gradient(135deg, #0ea5e9, #10b981);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.update-btn-UU:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+}
+
+.update-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading state for buttons */
+.btn-loading-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-spinner-UU {
+  width: 16px;
+  height: 16px;
+  animation: spin-UU 1s linear infinite;
+}
+
+/* ============================================
+   DELETE CONFIRMATION MODAL
+   ============================================ */
+
+.delete-modal-UU {
+  max-width: 400px;
+}
+
+/* Warning icon container */
+.delete-icon-container-UU {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.delete-icon-wrapper-UU {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-icon-UU {
+  width: 32px;
+  height: 32px;
+  color: #dc2626;
+}
+
+.delete-message-UU {
+  text-align: center;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.delete-user-info-UU {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.delete-user-name-UU {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.delete-user-email-UU {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.delete-warning-UU {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Delete confirmation button */
+.delete-confirm-btn-UU {
+  padding: 0.625rem 1.5rem;
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-confirm-btn-UU:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.delete-confirm-btn-UU:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   ERROR MODAL
+   ============================================ */
+
+.error-modal-UU {
+  max-width: 400px;
+}
+
+/* Error modal header with type-specific colors */
+.modal-header-UU.error {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-color: #fca5a5;
+}
+
+.modal-header-UU.warning {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-color: #fbbf24;
+}
+
+.modal-header-UU.info {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border-color: #60a5fa;
+}
+
+.error-header-content-UU {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.error-icon-wrapper-UU {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-icon-UU {
+  width: 20px;
+  height: 20px;
+}
+
+.modal-header-UU.error .error-icon-UU {
+  color: #dc2626;
+}
+
+.modal-header-UU.warning .error-icon-UU {
+  color: #d97706;
+}
+
+.modal-header-UU.info .error-icon-UU {
+  color: #1d4ed8;
+}
+
+.error-message-UU {
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* OK button with type-specific styling */
+.ok-btn-UU {
+  padding: 0.625rem 1.5rem;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ok-btn-UU.error {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.ok-btn-UU.warning {
+  background: #fef3c7;
+  border-color: #fbbf24;
+  color: #d97706;
+}
+
+.ok-btn-UU.info {
+  background: #dbeafe;
+  border-color: #60a5fa;
+  color: #1d4ed8;
+}
+
+.ok-btn-UU:hover {
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade-in animation for filter controls */
+@keyframes fadeIn-UU {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet and mobile breakpoints */
+@media (max-width: 768px) {
+  .users-dashboard-UU {
+    padding: 1rem;
+  }
+  
+  .dashboard-header-UU {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .header-right-UU {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  /* 2 stat cards per row on mobile */
+  .stats-grid-UU {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .search-filter-grid-UU {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons-row-UU {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-button-group-UU {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .filter-footer-UU {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .filter-actions-UU {
+    flex-direction: column;
+  }
+  
+  .user-details-grid-UU {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Responsive filter section */
+  .filter-section-UU {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-controls-UU {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-actions-UU {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .results-summary-UU {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Single column stats on very small screens */
+  .stats-grid-UU {
+    grid-template-columns: 1fr;
+  }
+  
+  .radio-group-UU {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .modal-footer-UU {
+    flex-direction: column;
+  }
+}
+
+/* Medium device breakpoints */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .stats-grid-UU {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .stats-grid-UU {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .stat-card-UU {
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .stat-icon-UU {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+  
+  .stat-value-UU {
+    font-size: 24px;
+  }
+}
+
+/* Mobile device breakpoints */
+@media (max-width: 767px) and (min-width: 576px) {
+  .users-dashboard-UU {
+    padding: 10px;
+  }
+  
+  /* 2 stat cards per row */
+  .stats-grid-UU {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  
+  .stat-card-UU {
+    padding: 15px;
+    gap: 12px;
+    min-height: 100px;
+  }
+  
+  .stat-icon-UU {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+  
+  .stat-value-UU {
+    font-size: 22px;
+  }
+  
+  .stat-label-UU {
+    font-size: 13px;
+  }
+  
+  .stat-content-UU {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 575px) {
+  .users-dashboard-UU {
+    padding: 8px;
+  }
+  
+  /* 2 stat cards per row on small screens */
+  .stats-grid-UU {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  
+  .stat-card-UU {
+    padding: 12px;
+    gap: 10px;
+    min-height: 90px;
+  }
+  
+  .stat-icon-UU {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 8px;
+  }
+  
+  .stat-value-UU {
+    font-size: 20px;
+  }
+  
+  .stat-label-UU {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  /* Keep 2 stat cards per row */
+  .stats-grid-UU {
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    gap: 10px;
+  }
+  
+  .stat-card-UU {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 10px;
+    min-height: 85px;
+  }
+  
+  .stat-icon-UU {
+    margin: 0 auto;
+  }
+  
+  .stat-label-UU {
+    font-size: 11px;
+  }
+  
+  .stat-value-UU {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .stats-grid-UU {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  
+  .stat-card-UU {
+    padding: 8px;
+    min-height: 80px;
+  }
+  
+  .stat-icon-UU {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .stat-value-UU {
+    font-size: 16px;
+  }
+  
+  .stat-label-UU {
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY AND SPECIAL MODES
+   ============================================ */
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .stat-card-UU,
+  .refresh-btn-UU,
+  .export-btn-UU,
+  .action-btn-UU {
+    transition: none;
+  }
+  
+  .stat-card-UU:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .stat-card-UU {
+    border: 2px solid currentColor;
+  }
+  
+  .users-table th {
+    border-bottom: 2px solid currentColor;
+  }
+  
+  .users-table td {
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .users-dashboard-UU {
+    background: #121212;
+  }
+  
+  .stat-card-UU,
+  .search-filter-section-UU,
+  .users-table-container-UU,
+  .modal-container-UU {
+    background: #1e1e1e;
+    color: #e0e0e0;
+  }
+  
+  .search-input-UU,
+  .filter-select-UU,
+  .form-input-UU,
+  .form-select-UU {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .stat-value-UU {
+    color: #ffffff;
+  }
+  
+  .stat-label-UU {
+    color: #b0b0b0;
+  }
+  
+  .users-table th {
+    background: #252525;
+    color: #b0b0b0;
+  }
+  
+  .users-table tbody tr:hover {
+    background: #252525;
+  }
+}

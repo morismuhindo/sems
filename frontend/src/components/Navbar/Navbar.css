@@ -1,0 +1,297 @@
+/* Navbar styles */
+.navbar {
+  background: green;
+  color: white;
+  padding: 8px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  opacity: 0.7;
+  z-index: 1000;
+  border-bottom: 5px solid blue;
+}
+
+/* Main container */
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Left section: Logo and organization name */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+  min-width: 250px;
+  flex-basis: 50%;
+}
+
+.logo-container {
+  width: 100px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px solid blue;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.organization-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.org-title {
+  font-size: 22px;
+}
+
+.org-subtitle {
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0 0;
+  opacity: 0.85;
+  font-weight: 400;
+  color: #cbd5e1;
+}
+
+/* Right section: Date and time display */
+.navbar-right {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  line-height: 20px;
+  min-width: 250px;
+}
+
+.datetime-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.datetime-container:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.date-display,
+.time-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  letter-spacing: 0.3px;
+}
+
+.time-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Segoe UI', 'Roboto Mono', monospace;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design for large tablets */
+@media (max-width: 1024px) {
+  .navbar-container {
+    gap: 0.75rem;
+  }
+  
+  .navbar-left,
+  .navbar-right {
+    min-width: auto;
+    flex: none;
+  }
+  
+  .org-title {
+    font-size: 1.3rem;
+  }
+  
+  .time-text {
+    font-size: 1.4rem;
+  }
+  
+  .date-text {
+    font-size: 0.9rem;
+  }
+  
+  .datetime-container {
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-left {
+    gap: 1rem;
+  }
+  
+  .logo-container {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .org-title {
+    font-size: 1.2rem;
+  }
+  
+  .org-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .datetime-container {
+    padding: 0.6rem;
+    align-items: center;
+  }
+  
+  .time-text {
+    font-size: 1.3rem;
+  }
+  
+  .date-text {
+    font-size: 0.85rem;
+  }
+}
+
+/* Responsive design for small tablets */
+@media (max-width: 640px) {
+  .navbar-container {
+    gap: 0.5rem;
+  }
+  
+  .navbar-left {
+    gap: 0.75rem;
+  }
+  
+  .logo-container {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .org-title {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+  
+  .org-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .datetime-container {
+    padding: 0.5rem;
+    min-width: 200px;
+  }
+  
+  .time-text {
+    font-size: 1.2rem;
+  }
+  
+  .date-text {
+    font-size: 0.8rem;
+    text-align: right;
+  }
+}
+
+/* Responsive design for mobile phones */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .org-title {
+    font-size: 1rem;
+    max-width: 120px;
+  }
+  
+  .datetime-container {
+    min-width: 180px;
+  }
+  
+  .time-text {
+    font-size: 1.1rem;
+  }
+  
+  .date-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* Responsive design for small mobile phones */
+@media (max-width: 360px) {
+  .navbar-left {
+    gap: 0.5rem;
+  }
+  
+  .logo-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .org-title {
+    font-size: 0.9rem;
+    max-width: 100px;
+  }
+  
+  .org-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .datetime-container {
+    min-width: 160px;
+  }
+  
+  .time-text {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-container,
+  .datetime-container {
+    transition: none;
+  }
+  
+  .logo-container:hover {
+    transform: none;
+  }
+}

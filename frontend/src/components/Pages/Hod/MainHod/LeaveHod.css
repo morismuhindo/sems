@@ -1,0 +1,1643 @@
+.leaveHodContainerHD {
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Header */
+.headerCardHD {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+}
+
+.titleHD {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.titleIconHD {
+  color: #3b82f6;
+}
+
+.userInfoHD {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.infoItemHD {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Action Bar */
+.actionBarHD {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 0 4px;
+}
+
+.applyButtonHD,
+.exportButtonHD {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.applyButtonHD {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.applyButtonHD:hover:not(:disabled) {
+  background-color: #7c3aed;
+}
+
+.applyButtonHD:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.exportButtonHD {
+  background-color: #10b981;
+  color: white;
+}
+
+.exportButtonHD:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.exportButtonHD:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tooltipHD {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #374151;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.applyButtonHD:hover .tooltipHD {
+  opacity: 1;
+}
+
+/* Stats Grid */
+.statsGridHD {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.statCardHD {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statIconHD {
+  background-color: #dbeafe;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.statCardTotalHD .statIconHD {
+  background-color: #dbeafe;
+  color: #3b82f6;
+}
+
+.statCardPendingHD .statIconHD {
+  background-color: #ffedd5;
+  color: #f97316;
+}
+
+.statCardApprovedHD .statIconHD {
+  background-color: #dcfce7;
+  color: #10b981;
+}
+
+.statCardRejectedHD .statIconHD {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.statContentHD {
+  flex: 1;
+}
+
+.statNumberHD {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.statCardTotalHD .statNumberHD {
+  color: #3b82f6;
+}
+
+.statCardPendingHD .statNumberHD {
+  color: #f97316;
+}
+
+.statCardApprovedHD .statNumberHD {
+  color: #10b981;
+}
+
+.statCardRejectedHD .statNumberHD {
+  color: #ef4444;
+}
+
+.statLabelHD {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Filters */
+.filtersCardHD {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+}
+
+.filtersHeaderHD {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtersHeaderHD h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1e293b;
+}
+
+.filtersHeaderHD svg {
+  color: #64748b;
+}
+
+.filtersRowHD {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.searchContainerHD {
+  flex: 1;
+  position: relative;
+}
+
+.searchContainerHD svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.searchInputHD {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 14px;
+}
+
+.filterControlsHD {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+}
+
+.filterSelectHD {
+  padding: 10px 16px;
+  border-radius: 8px;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.filterInfoHD {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.countInfoHD {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.pendingBadgeHD {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffedd5;
+  color: #9a3412;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Table Container */
+.tableContainerHD {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+}
+
+.tableHeaderHD {
+  padding: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tableTitleHD {
+  margin: 0;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.tableWrapperHD {
+  overflow-x: auto;
+}
+
+.leaveTableHD {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeadHD {
+  background-color: #f8fafc;
+}
+
+.tableHeaderCellHD {
+  padding: 16px;
+  text-align: left;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.headerCellContentHD {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tableRowHD {
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tableRowHD:hover {
+  background-color: #f8fafc;
+}
+
+.pendingRowHD {
+  background-color: #fff8e1;
+}
+
+.pendingRowHD:hover {
+  background-color: #fffbeb;
+}
+
+.ownLeaveRowHD {
+  background-color: #fef3c7;
+}
+
+.ownLeaveRowHD:hover {
+  background-color: #fef3c7;
+}
+
+.tableCellHD {
+  padding: 16px;
+  color: #1e293b;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.employeeInfoHD {
+  min-width: 200px;
+}
+
+.employeeNameHD {
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ownLeaveBadgeHD {
+  background-color: #f59e0b;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.employeeDetailsHD {
+  font-size: 12px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.leaveTypeBadgeHD {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.daysBadgeHD {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.statusBadgeHD {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reasonCellHD {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
+}
+
+.actionButtonsHD {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.iconButtonHD {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.iconButtonHD:hover {
+  background-color: #f1f5f9;
+}
+
+.approveButtonHD {
+  color: #10b981;
+}
+
+.rejectButtonHD {
+  color: #ef4444;
+}
+
+.hodOwnActionHD {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.actionStatusHD {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Empty State */
+.emptyStateHD {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+
+.emptyStateHD svg {
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.emptyTitleHD {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.emptyDescriptionHD {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.emptyButtonHD {
+  margin: 20px auto 0;
+}
+
+/* Loading State */
+.loadingStateHD {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  color: #64748b;
+}
+
+.loadingSpinnerHD {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  margin-right: 12px;
+  animation: spinHD 1s linear infinite;
+}
+
+@keyframes spinHD {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Modal */
+.modalOverlayHD {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalHD {
+  background-color: white;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.detailsModalHD {
+  max-width: 600px;
+}
+
+.modalHeaderHD {
+  padding: 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitleHD {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modalCloseHD {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.modalCloseHD:hover {
+  background-color: #f1f5f9;
+}
+
+.modalContentHD {
+  padding: 24px;
+}
+
+.modalActionsHD {
+  padding: 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Form Styles */
+.formGroupHD {
+  margin-bottom: 20px;
+}
+
+.formLabelHD {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.leaveType{
+  width: 100%;
+}
+.formSelectHD,
+.formInputHD,
+.formTextareaHD {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.formTextareaHD {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.formGridHD {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.noteBoxHD {
+  background-color: #f0f9ff;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #0369a1;
+}
+
+.cancelButtonHD {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submitButtonHD {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #8b5cf6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submitButtonHD:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Details Modal Styles */
+.employeeSectionHD {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.sectionTitleHD {
+  margin: 0 0 12px 0;
+  color: #1e293b;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.employeeGridHD {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detailsGridHD {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.fullWidthHD {
+  grid-column: span 2;
+}
+
+.infoLabelHD {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.infoValueHD {
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.durationValueHD {
+  font-size: 24px;
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.reasonBoxHD {
+  background-color: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.detailsBadgeHD {
+  display: inline-flex;
+}
+
+/* Review Modal Styles */
+.reviewNoticeHD {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.reviewDetailsHD {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.noteInputHD {
+  margin-bottom: 0;
+}
+
+.requiredHD {
+  color: #ef4444;
+}
+
+.noteTextareaHD {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.dangerButtonHD {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid #ef4444;
+  background-color: white;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.successButtonHD {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #10b981;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .leaveHodContainerHD {
+    padding: 16px;
+  }
+  
+  .titleHD {
+    font-size: 22px;
+  }
+  
+  .userInfoHD {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .actionBarHD {
+    flex-wrap: wrap;
+  }
+  
+  .statsGridHD {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .statCardHD {
+    padding: 16px;
+  }
+  
+  .statIconHD {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  
+  .statNumberHD {
+    font-size: 26px;
+  }
+  
+  .filtersCardHD {
+    padding: 16px;
+  }
+  
+  .filtersRowHD {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .filterSelectHD {
+    min-width: 100%;
+  }
+  
+  .filterInfoHD {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .tableHeaderHD {
+    padding: 16px;
+  }
+  
+  .tableCellHD {
+    padding: 12px 8px;
+  }
+  
+  .employeeGridHD,
+  .detailsGridHD,
+  .reviewDetailsHD {
+    grid-template-columns: 1fr;
+  }
+  
+  .fullWidthHD {
+    grid-column: span 1;
+  }
+  
+  .modalActionsHD {
+    flex-wrap: wrap;
+  }
+  
+  .formGridHD {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Error Messages */
+.errorMessageHD {
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.errorMessageHD svg {
+  flex-shrink: 0;
+}
+
+/* Duration Display */
+.durationDisplayHD {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.durationLabelHD {
+  color: #0369a1;
+  font-weight: 500;
+}
+
+.durationValueHD {
+  color: #0c4a6e;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Required text */
+.requiredHD {
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+/* Note Input */
+.noteInputHD {
+  margin-top: 20px;
+}
+
+.noteTextareaHD {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 80px;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.noteTextareaHD:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cancel button in table */
+.iconButtonHD.cancelButtonHD {
+ color: #dc2626;
+}
+
+.iconButtonHD.cancelButtonHD:hover {
+  background-color: #fecaca;
+}
+
+/* Cancel modal specific styles */
+.noteHintHD {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Cancelled status in table */
+.actionStatusHD {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+/* HOD own action text */
+.hodOwnActionHD {
+  font-size: 11px;
+  color: #6b7280;
+  padding: 2px 6px;
+
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Duration display in details */
+.durationValueHD {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c4a6e;
+}
+
+/* Add these styles to your existing EmployeeHod.css */
+
+/* Header adjustments */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hod-department-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Role info banner */
+.role-info-banner {
+  background-color: #e8f4fd;
+  border-left: 4px solid #2196f3;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1976d2;
+}
+
+.role-info-banner strong {
+  color: #0d47a1;
+}
+
+/* Disabled button styles */
+.add-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.add-btn:disabled:hover {
+  background-color: #ccc;
+  transform: none;
+}
+
+/* Table action button adjustments */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actions button.edit {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.actions button.edit:hover:not(:disabled) {
+  background-color: #bbdefb;
+}
+
+.actions button.delete {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.actions button.delete:hover:not(:disabled) {
+  background-color: #ffcdd2;
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Department cell styles */
+.department-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dept-name {
+  font-weight: 500;
+}
+
+.dept-code {
+  font-size: 0.75rem;
+  color: #666;
+  background-color: #f5f5f5;
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Results summary enhancements */
+.results-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.results-count {
+  font-weight: 500;
+  color: #333;
+}
+
+.active-filters {
+  font-size: 0.875rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+
+
+/* Leave End Notification Styles for HOD */
+.notificationOverlayHD {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.notificationModalHD {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 3px solid #f59e0b;
+  animation: notificationPulseHD 2s infinite;
+}
+
+@keyframes notificationPulseHD {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    border-color: #f59e0b;
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
+    border-color: #fbbf24;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    border-color: #f59e0b;
+  }
+}
+
+.notificationHeaderHD {
+  padding: 24px 24px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(254, 243, 199, 0.5);
+  border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+}
+
+.notificationIconHD {
+  width: 40px;
+  height: 40px;
+  color: #d97706;
+  flex-shrink: 0;
+  animation: clockSpinHD 4s linear infinite;
+}
+
+@keyframes clockSpinHD {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+}
+
+.notificationTitleHD {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #92400e;
+  flex: 1;
+}
+
+.notificationBodyHD {
+  padding: 24px;
+  background: white;
+}
+
+.notificationMessageHD {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.5;
+  padding: 16px;
+  background: #fef3c7;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+}
+
+.notificationHintHD {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+}
+
+.notificationActionsHD {
+  padding: 20px 24px 24px;
+  display: flex;
+  justify-content: center;
+  background: rgba(254, 243, 199, 0.5);
+  border-top: 2px solid rgba(245, 158, 11, 0.3);
+}
+
+.notificationOkBtnHD {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  min-width: 200px;
+}
+
+.notificationOkBtnHD:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+}
+
+.notificationOkBtnHD:active {
+  transform: translateY(0);
+}
+
+.okBtnIconHD {
+  width: 20px;
+  height: 20px;
+}
+
+/* Days Counter Styles for HOD */
+.durationDisplayHD {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.durationLabelHD {
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+.durationValueHD {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Ending Leave Card Highlight for HOD */
+.endingLeaveCardHD {
+  position: relative;
+  border: 3px solid #f59e0b;
+  animation: cardGlowHD 2s infinite alternate;
+  background: linear-gradient(135deg, #fff 0%, #fef3c7 100%);
+}
+
+@keyframes cardGlowHD {
+  from {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+  }
+}
+
+.endingBadgeHD {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Notification Settings Button for HOD */
+.notificationSettingsHD {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.settingsBtnHD {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.settingsBtnHD:hover {
+  transform: rotate(30deg);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+.settingsIconHD {
+  width: 24px;
+  height: 24px;
+}
+
+/* Tooltip for Ending Soon for HOD */
+.endingTooltipHD {
+  position: relative;
+  display: inline-block;
+}
+
+.endingTooltipHD .tooltipTextHD {
+  visibility: hidden;
+  width: 200px;
+  background-color: #f59e0b;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.endingTooltipHD .tooltipTextHD::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f59e0b transparent transparent transparent;
+}
+
+.endingTooltipHD:hover .tooltipTextHD {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile Responsive for HOD */
+@media (max-width: 768px) {
+  .notificationModalHD {
+    max-width: 90%;
+  }
+  
+  .notificationHeaderHD {
+    padding: 20px 20px 12px;
+  }
+  
+  .notificationTitleHD {
+    font-size: 20px;
+  }
+  
+  .notificationMessageHD {
+    font-size: 16px;
+  }
+  
+  .notificationOkBtnHD {
+    padding: 12px 24px;
+    font-size: 14px;
+    min-width: 180px;
+  }
+}
+
+/* Sound Toggle Button for HOD */
+.soundToggleHD {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.toggleBtnHD {
+  background: none;
+  border: 2px solid #f59e0b;
+  color: #92400e;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.toggleBtnHD:hover {
+  background: #f59e0b;
+  color: white;
+}
+
+.toggleIconHD {
+  width: 16px;
+  height: 16px;
+}
+
+/* Countdown Timer for HOD */
+.countdownTimerHD {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.timerUnitHD {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 50px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timerValueHD {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d97706;
+  display: block;
+}
+
+.timerLabelHD {
+  font-size: 10px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Emergency/Urgent Style for HOD */
+.urgentNotificationHD {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-color: #dc2626;
+  animation: urgentPulseHD 1s infinite;
+}
+
+@keyframes urgentPulseHD {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(220, 38, 38, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.urgentHeaderHD {
+  background: rgba(254, 226, 226, 0.5);
+  border-bottom-color: rgba(220, 38, 38, 0.3);
+}
+
+.urgentTitleHD {
+  color: #991b1b;
+}
+
+.urgentIconHD {
+  color: #dc2626;
+  animation: urgentSpinHD 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes urgentSpinHD {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+/* Snooze Option for HOD */
+.snoozeOptionsHD {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.snoozeBtnHD {
+  flex: 1;
+  background: rgba(245, 158, 11, 0.1);
+  border: 2px solid rgba(245, 158, 11, 0.3);
+  color: #92400e;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.snoozeBtnHD:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+}
+
+/* Progress Bar for Time Remaining for HOD */
+.progressBarHD {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.progressFillHD {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #3b82f6 50%, #f59e0b 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progressTextHD {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.cancelButtonHD{
+   padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}

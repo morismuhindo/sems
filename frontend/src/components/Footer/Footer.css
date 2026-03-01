@@ -1,0 +1,76 @@
+.sems-footer {
+  background: linear-gradient(135deg, #071a2a, #0b3c49);
+  border-top: 4px solid green;
+  padding: clamp(14px, 2vw, 22px) clamp(16px, 4vw, 40px);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.sems-footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 3vw, 24px);
+  flex-wrap: wrap;
+}
+
+.sems-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 14px);
+}
+
+.sems-footer-logo {
+  height: clamp(26px, 3.5vw, 34px);
+  width: auto;
+  object-fit: contain;
+}
+
+.sems-footer-text {
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: #c9d8e5;
+  line-height: 1.4;
+}
+
+.sems-footer-links {
+  display: flex;
+  gap: clamp(14px, 3vw, 28px);
+  flex-wrap: wrap;
+}
+
+.sems-footer-links a {
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: #9fd8d2;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.sems-footer-links a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+  .sems-footer-container {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .sems-footer-container {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sems-footer-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .sems-footer-text {
+    text-align: center;
+  }
+}

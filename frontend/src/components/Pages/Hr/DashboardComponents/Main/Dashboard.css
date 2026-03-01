@@ -1,0 +1,2284 @@
+.dashboard-ds {
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 
+  LOADING STATE
+  -------------
+  Styles for the loading spinner and container displayed while data is being fetched.
+*/
+.dashboard-loading-ds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner-ds {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #00b09b; 
+  border-radius: 50%;
+  animation: spin-ds 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin-ds {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 
+  UNAUTHORIZED STATE
+  ------------------
+  Styles for when user is not authenticated/authorized to view dashboard.
+*/
+.unauth-ds {
+  text-align: center;
+  padding: 3rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  color: #ef4444; 
+  font-size: 1.1rem;
+}
+
+/* 
+  HEADER SECTION
+  --------------
+  Contains the dashboard title, subtitle, and action buttons.
+*/
+.dashboard-header-ds {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.header-left-ds h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0a2540;
+  margin: 0;
+}
+
+.dashboard-subtitle-ds {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.header-right-ds {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* 
+  REFRESH BUTTON
+  --------------
+  Button for refreshing dashboard data with gradient green/blue styling.
+*/
+.refresh-btn-ds {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #2193b0, #6dd5ed); 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.refresh-btn-ds:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.refresh-btn-ds:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.refresh-icon-ds {
+  transition: transform 0.2s;
+}
+
+.refresh-icon-ds.spinning-ds {
+  animation: spin-ds 1s linear infinite;
+}
+
+/* 
+  ERROR ALERT
+  -----------
+  Displays error messages with red-themed styling.
+*/
+.error-alert-ds {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626; /* Red error text */
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+
+/* 
+  DASHBOARD CARD BASE STYLE
+  -------------------------
+  Common card styling used throughout the dashboard for consistent appearance.
+*/
+.dashboard-card-ds {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* 
+  TODAY'S SUMMARY BANNER
+  ----------------------
+  Prominent banner showing today's attendance summary with green gradient.
+*/
+.today-summary-banner-ds {
+  background: linear-gradient(135deg, #00b09b, #96c93d); 
+  color: white;
+  border: none;
+  padding: 1.5rem;
+  max-width: 100%;
+}
+
+.summary-content-ds {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.summary-icon-ds {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+
+.summary-details-ds h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.summary-stats-ds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  max-width: 100%;
+}
+
+.summary-stat-ds {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 
+  STATUS BADGE CLASSES
+  --------------------
+  Color-coded badges for different attendance/leave statuses.
+  Uses green/blue theme with appropriate variations.
+*/
+.status-badge-present-ds {
+  background-color: rgba(220, 252, 231, 0.9); /* Light green */
+  color: #166534; /* Dark green text */
+}
+
+.status-badge-late-ds {
+  background-color: rgba(254, 243, 199, 0.9);
+  color: #92400e; 
+}
+
+.status-badge-absent-ds {
+  background-color: rgba(254, 226, 226, 0.9);
+  color: #991b1b; 
+}
+
+.status-badge-leave-ds {
+  background-color: rgba(219, 234, 254, 0.9);
+  color: #1e40af;
+}
+
+.status-badge-cancelled-ds {
+  background-color: rgba(243, 244, 246, 0.9); 
+  color: #374151; 
+}
+
+.status-badge-pending-ds {
+  background-color: rgba(254, 243, 199, 0.9); 
+  color: #92400e; 
+}
+
+/* 
+  STATISTICS CARDS GRID
+  ---------------------
+  Grid layout for the main statistics cards (Employees, Departments, Documents, Attendance).
+*/
+.statistics-cards-ds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+
+.stat-card-ds {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: 100px;
+  border-top: 4px solid transparent;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.stat-card-ds:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card-specific top border colors */
+.stat-card-employees-ds {
+  border-top-color: #00b09b; 
+}
+
+.stat-card-departments-ds {
+  border-top-color: #2193b0;
+}
+
+.stat-card-documents-ds {
+  border-top-color: #96c93d; 
+}
+
+.stat-card-attendance-ds {
+  border-top-color: #6dd5ed; 
+}
+
+.stat-icon-ds {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Icon gradient backgrounds matching card borders */
+.stat-card-employees-ds .stat-icon-ds {
+  background: linear-gradient(135deg, #00b09b, #96c93d); /* Green gradient */
+}
+
+.stat-card-departments-ds .stat-icon-ds {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed); /* Blue gradient */
+}
+
+.stat-card-documents-ds .stat-icon-ds {
+  background: linear-gradient(135deg, #10b981, #34d399); /* Alternative green */
+}
+
+.stat-card-attendance-ds .stat-icon-ds {
+  background: linear-gradient(135deg, #0d9488, #5eead4); 
+}
+
+.stat-content-ds {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.stat-content-ds h3 {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-value-ds {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0a2540; /* Dark blue */
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-subtext-ds {
+  font-size: 0.8rem;
+  color: #94a3b8; /* Light gray */
+  margin-top: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+  DETAILED STATISTICS GRID
+  ------------------------
+  Grid for detailed attendance and leave statistics sections.
+  Adaptive layout for sidebar compatibility.
+*/
+.detailed-stats-grid-ds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.section-header-ds {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  max-width: 100%;
+}
+
+.section-title-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #0a2540;
+  margin: 0;
+  min-width: 0;
+}
+
+.section-title-ds h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.section-total-ds {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+  background-color: #f1f5f9;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 
+  STATS GRID (Detailed Statistics Items)
+  ---------------------------------------
+  Grid layout for individual stat items within attendance/leave sections.
+*/
+.stats-grid-ds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.8rem;
+  max-width: 100%;
+}
+
+.stat-item-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: background-color 0.2s;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.stat-item-ds:hover {
+  background-color: #f1f5f9;
+}
+
+.stat-badge-ds {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-info-ds {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.stat-label-ds {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-number-ds {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a2540;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+  SYSTEM STATUS SECTION
+  ---------------------
+  Displays system health/status indicators.
+*/
+.system-status-ds {
+  margin-bottom: 0;
+}
+
+.status-items-ds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.status-item-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  min-width: 0;
+}
+
+.status-ok-ds {
+  color: #16a34a; /* Green for OK status */
+  background-color: #f0fdf4;
+  border-color: #dcfce7;
+}
+
+/* 
+  DATE FILTER SECTION
+  -------------------
+  Contains date range filters and quick filter buttons.
+*/
+.date-filter-section-ds {
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+
+.filter-header-ds {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  max-width: 100%;
+}
+
+.filter-header-ds h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0a2540;
+  white-space: nowrap;
+}
+
+.filter-controls-ds {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.quick-filters-ds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.quick-filter-btn-ds {
+  padding: 0.5rem 0.8rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.quick-filter-btn-ds:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.quick-filter-btn-ds.active {
+  background-color: #2193b0; /* Blue active state */
+  color: white;
+  border-color: #2193b0;
+}
+
+.custom-date-range-ds {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  max-width: 100%;
+}
+
+.date-input-group-ds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 140px;
+}
+
+.date-input-group-ds label {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.date-input-ds {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #334155;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.apply-custom-filter-ds {
+  padding: 0.5rem 1rem;
+  background-color: #00b09b; /* Green apply button */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.apply-custom-filter-ds:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.apply-custom-filter-ds:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.current-filter-info-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background-color: #f0fdf4; /* Light green background */
+  border-radius: 6px;
+  border: 1px solid #dcfce7;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.filter-label-ds {
+  font-size: 0.85rem;
+  color: #166534; /* Dark green text */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.filter-value-ds {
+  font-size: 0.85rem;
+  color: #0a2540;
+  font-weight: 600;
+  background: #e9ecef;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.record-count-ds {
+  font-size: 0.8rem;
+  color: #64748b;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 
+  FILTER NOTES
+  ------------
+  Informational notes about filter behavior.
+*/
+.filter-note-ds {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #fef3c7; /* Yellow background for notes */
+  border-radius: 6px;
+  border: 1px solid #fbbf24;
+  max-width: 100%;
+}
+
+.filter-note-ds small {
+  color: #92400e; /* Dark yellow text */
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.leave-integration-note-ds {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: #dbeafe; /* Blue background for notes */
+  border-radius: 6px;
+  border: 1px solid #3b82f6;
+  max-width: 100%;
+}
+
+.leave-integration-note-ds small {
+  color: #1e40af; /* Dark blue text */
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* 
+  FILTER CONTROL BUTTONS
+  ----------------------
+  Various buttons for filter manipulation (toggle, clear, collapse).
+*/
+.toggle-filters-btn-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  color: #495057;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.toggle-filters-btn-ds:hover {
+  background: #e9ecef;
+  border-color: #ced4da;
+}
+
+.toggle-filters-btn-ds:active {
+  background: #dee2e6;
+}
+
+/* Filter Header Layout Components */
+.filter-header-left-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.filter-header-right-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.clear-filters-btn-ds {
+  padding: 0.375rem 0.75rem;
+  background: #f8d7da; /* Light red for clear/destructive action */
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  color: #721c24; /* Dark red text */
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.clear-filters-btn-ds:hover {
+  background: #f5c6cb;
+  border-color: #f1b0b7;
+}
+
+.collapse-filters-btn-ds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.collapse-filters-btn-ds:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+/* 
+  SHOW FILTERS CONTAINER
+  ----------------------
+  Container and button for showing hidden filters.
+*/
+.show-filters-container-ds {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.show-filters-btn-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #e7f1ff; /* Light blue background */
+  border: 1px solid #cfe2ff;
+  border-radius: 0.5rem;
+  color: #0d6efd; /* Blue text */
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.show-filters-btn-ds:hover {
+  background: #d0e2ff;
+  border-color: #a6c5ff;
+}
+
+.show-filters-btn-ds:active {
+  background: #b8d4fe;
+}
+
+.current-filter-badge-ds {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #0d6efd; /* Blue badge */
+  border-radius: 1rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 
+  FILTER INFO LAYOUT
+  ------------------
+  Layout components for displaying filter information.
+*/
+.filter-info-left-ds {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-info-right-ds {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-subtitle-ds {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* 
+  =========================================================
+  RESPONSIVE DESIGN ENHANCEMENTS
+  =========================================================
+  
+  These media queries provide responsive adaptations for different
+  screen sizes, from extra large screens down to tiny mobile devices.
+*/
+
+/* 
+  EXTRA LARGE SCREENS (1600px and above)
+  --------------------------------------
+  Optimized for large desktop monitors and high-resolution displays.
+*/
+@media (min-width: 1600px) {
+  .dashboard-ds {
+    padding: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr 1fr; /* Two columns for wide screens */
+    gap: 2.5rem;
+  }
+  
+  .statistics-cards-ds {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .stats-grid-ds {
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  }
+  
+  .status-items-ds {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 
+  LARGE DESKTOP SCREENS (1400px to 1599px)
+  -----------------------------------------
+  Standard large desktop breakpoint.
+*/
+@media (max-width: 1599px) and (min-width: 1400px) {
+  .dashboard-ds {
+    padding: 2.5rem;
+  }
+  
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .statistics-cards-ds {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .stats-grid-ds {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  }
+}
+
+/* 
+  STANDARD DESKTOP SCREENS (1200px to 1399px)
+  -------------------------------------------
+  Most common desktop/laptop screen sizes.
+*/
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .statistics-cards-ds {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stats-grid-ds {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .summary-content-ds {
+    gap: 1.2rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 100px;
+    padding: 1.2rem;
+  }
+}
+
+/* 
+  MEDIUM DESKTOP / LARGE TABLET LANDSCAPE (992px to 1199px)
+  ---------------------------------------------------------
+  Smaller desktops and large tablets in landscape orientation.
+*/
+@media (max-width: 1199px) and (min-width: 992px) {
+  .dashboard-ds {
+    padding: 1.8rem;
+  }
+  
+  .dashboard-header-ds {
+    padding: 1.5rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 cards per row */
+    gap: 1.2rem;
+  }
+  
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+  
+  .stat-card-ds {
+    min-height: 95px;
+    padding: 1.1rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.7rem;
+  }
+  
+  .stat-icon-ds {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .summary-content-ds {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .summary-stats-ds {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+}
+
+/* 
+  TABLET PORTRAIT / SMALL DESKTOP (768px to 991px)
+  ------------------------------------------------
+  Tablets in portrait mode and small desktop screens.
+*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .dashboard-ds {
+    padding: 1.5rem;
+  }
+  
+  /* Header becomes vertical layout */
+  .dashboard-header-ds {
+    display: none; /* Hidden on medium screens */
+  }
+  
+  .header-left-ds {
+    width: 100%;
+  }
+  
+  .header-right-ds {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Statistics cards - 2 per row */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 90px;
+    padding: 1rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.6rem;
+  }
+  
+  .stat-icon-ds {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.85rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.75rem;
+  }
+  
+  /* Summary section adjustments */
+  .summary-content-ds {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .summary-stats-ds {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 0.8rem;
+  }
+  
+  .summary-stat-ds {
+    justify-content: center;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Status items adjust to 2 columns */
+  .status-items-ds {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Filter controls become vertical */
+  .filter-controls-ds {
+    flex-direction: column;
+  }
+  
+  .quick-filters-ds {
+    justify-content: center;
+  }
+  
+  .custom-date-range-ds {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .date-input-group-ds {
+    width: 100%;
+  }
+  
+  .apply-custom-filter-ds {
+    align-self: stretch;
+    margin-top: 0.5rem;
+  }
+}
+
+/* 
+  LARGE MOBILE DEVICES (576px to 767px)
+  -------------------------------------
+  Large smartphones and small tablets.
+*/
+@media (max-width: 767px) and (min-width: 576px) {
+  .dashboard-ds {
+    padding: 1.2rem;
+  }
+  
+  .dashboard-header-ds {
+    display: none; /* Header hidden on mobile */
+  }
+  
+  .header-left-ds h1 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .dashboard-subtitle-ds {
+    font-size: 0.85rem;
+  }
+  
+  /* Statistics cards - 2 per row */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 85px;
+    padding: 0.9rem;
+    gap: 0.8rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.5rem;
+  }
+  
+  .stat-icon-ds {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.8rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.7rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+  
+  .stat-item-ds {
+    padding: 0.7rem;
+  }
+  
+  .stat-badge-ds {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .stat-label-ds {
+    font-size: 0.7rem;
+  }
+  
+  .stat-number-ds {
+    font-size: 1rem;
+  }
+  
+  /* Summary section */
+  .summary-stats-ds {
+    grid-template-columns: repeat(2, 1fr); /* 2 stats per row */
+    gap: 0.6rem;
+  }
+  
+  .summary-stat-ds {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Header right section becomes vertical */
+  .header-right-ds {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  
+  .refresh-btn-ds {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .user-info-ds {
+    justify-content: center;
+    padding: 0.8rem;
+  }
+  
+  /* Status items stack vertically */
+  .status-items-ds {
+    grid-template-columns: 1fr;
+  }
+  
+  .status-item-ds {
+    justify-content: space-between;
+  }
+  
+  /* Section headers become vertical */
+  .section-header-ds {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .section-total-ds {
+    align-self: flex-start;
+  }
+  
+  /* Filter header adjustments */
+  .filter-header-ds {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .filter-info-left-ds,
+  .filter-info-right-ds {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .current-filter-info-ds {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}
+
+/* 
+  MEDIUM MOBILE DEVICES (480px to 575px)
+  --------------------------------------
+  Average-sized smartphones.
+*/
+@media (max-width: 575px) and (min-width: 480px) {
+  .dashboard-ds {
+    padding: 1rem;
+  }
+  
+  .dashboard-header-ds {
+    display: none;
+  }
+  
+  .header-left-ds h1 {
+    font-size: 1.3rem;
+  }
+  
+  .dashboard-subtitle-ds {
+    font-size: 0.8rem;
+  }
+  
+  /* Statistics cards - 2 per row, more compact */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 80px;
+    padding: 0.8rem;
+    gap: 0.7rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.4rem;
+  }
+  
+  .stat-icon-ds {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.65rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .stat-item-ds {
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+  
+  .stat-badge-ds {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .stat-label-ds {
+    font-size: 0.65rem;
+    margin-bottom: 0.1rem;
+  }
+  
+  .stat-number-ds {
+    font-size: 0.95rem;
+  }
+  
+  /* Summary section adjustments */
+  .today-summary-banner-ds {
+    padding: 1rem;
+  }
+  
+  .summary-content-ds {
+    gap: 0.8rem;
+  }
+  
+  .summary-icon-ds {
+    padding: 0.8rem;
+  }
+  
+  .summary-details-ds h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .summary-stats-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .summary-stat-ds {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    justify-content: center;
+  }
+  
+  /* User info becomes more compact */
+  .user-info-ds {
+    padding: 0.6rem;
+    gap: 0.8rem;
+  }
+  
+  .user-avatar-ds {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  
+  .user-name-ds {
+    font-size: 0.85rem;
+  }
+  
+  .user-role-ds {
+    font-size: 0.7rem;
+  }
+  
+  /* Refresh button */
+  .refresh-btn-ds {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Section headers */
+  .section-title-ds h3 {
+    font-size: 1rem;
+  }
+  
+  .section-total-ds {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* 
+  SMALL MOBILE DEVICES (400px to 479px)
+  -------------------------------------
+  Smaller smartphones.
+*/
+@media (max-width: 479px) and (min-width: 400px) {
+  .dashboard-ds {
+    padding: 0.8rem;
+  }
+  
+  .dashboard-header-ds {
+    display: none;
+  }
+  
+  .header-left-ds h1 {
+    font-size: 1.2rem;
+  }
+  
+  /* Statistics cards - still 2 per row but more compact */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    gap: 0.6rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 75px;
+    padding: 0.7rem;
+    gap: 0.6rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.3rem;
+  }
+  
+  .stat-icon-ds {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.7rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.6rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW on small mobile */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .stat-item-ds {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  /* Summary stats become single column */
+  .summary-stats-ds {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .summary-stat-ds {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  
+  /* Quick filters become horizontally scrollable */
+  .quick-filters-ds {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .quick-filter-btn-ds {
+    flex-shrink: 0;
+  }
+  
+  /* Error alert */
+  .error-alert-ds {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* 
+  EXTRA SMALL MOBILE DEVICES (360px to 399px)
+  -------------------------------------------
+  Very small smartphones.
+*/
+@media (max-width: 399px) and (min-width: 360px) {
+  .dashboard-ds {
+    padding: 0.7rem;
+  }
+  
+  .dashboard-header-ds {
+    padding: 0.8rem;
+    border-radius: 6px;
+  }
+  
+  .header-left-ds h1 {
+    font-size: 1.1rem;
+  }
+  
+  .dashboard-subtitle-ds {
+    font-size: 0.75rem;
+  }
+  
+  /* Statistics cards - still 2 per row */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 70px;
+    padding: 0.6rem;
+    gap: 0.5rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.2rem;
+  }
+  
+  .stat-icon-ds {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.65rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.55rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW on extra small mobile */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .section-title-ds h3 {
+    font-size: 0.95rem;
+  }
+  
+  /* Summary section adjustments */
+  .today-summary-banner-ds {
+    padding: 0.8rem;
+  }
+  
+  .summary-icon-ds {
+    padding: 0.6rem;
+  }
+  
+  .summary-details-ds h3 {
+    font-size: 0.95rem;
+  }
+  
+  /* User info becomes more compact */
+  .user-info-ds {
+    padding: 0.5rem;
+    gap: 0.6rem;
+  }
+  
+  .user-avatar-ds {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+  
+  .user-name-ds {
+    font-size: 0.8rem;
+  }
+  
+  .user-role-ds {
+    font-size: 0.65rem;
+  }
+}
+
+/* 
+  VERY SMALL MOBILE DEVICES (320px to 359px)
+  ------------------------------------------
+  The smallest common smartphone sizes.
+*/
+@media (max-width: 359px) and (min-width: 320px) {
+  .dashboard-ds {
+    padding: 0.6rem;
+  }
+  
+  .dashboard-header-ds {
+    display: none;
+  }
+  
+  .header-left-ds h1 {
+    font-size: 1rem;
+    gap: 0.4rem;
+  }
+  
+  .dashboard-subtitle-ds {
+    font-size: 0.7rem;
+  }
+  
+  /* Statistics cards - vertical layout (single column) */
+  .statistics-cards-ds {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 65px;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.1rem;
+  }
+  
+  .stat-icon-ds {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.7rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.6rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW on very small mobile */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  /* Summary stats - vertical (single column) */
+  .summary-stats-ds {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Header right becomes vertical */
+  .header-right-ds {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .refresh-btn-ds,
+  .user-info-ds {
+    width: 100%;
+  }
+  
+  /* Stat items */
+  .stat-item-ds {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  .stat-badge-ds {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .stat-label-ds {
+    font-size: 0.6rem;
+  }
+  
+  .stat-number-ds {
+    font-size: 0.9rem;
+  }
+}
+
+/* 
+  TINY MOBILE DEVICES (below 320px)
+  ---------------------------------
+  For very small or old mobile devices.
+*/
+@media (max-width: 319px) {
+  .dashboard-ds {
+    padding: 0.5rem;
+  }
+  
+  .dashboard-header-ds {
+    display: none;
+  }
+  
+  .header-left-ds h1 {
+    font-size: 0.95rem;
+  }
+  
+  .dashboard-subtitle-ds {
+    font-size: 0.65rem;
+  }
+  
+  /* Everything becomes very compact */
+  .statistics-cards-ds {
+    gap: 0.4rem;
+  }
+  
+  .stat-card-ds {
+    padding: 0.5rem;
+    min-height: 60px;
+  }
+  
+  .stat-value-ds {
+    font-size: 1rem;
+  }
+  
+  .stat-icon-ds {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.6rem;
+  }
+  
+  .stat-subtext-ds {
+    font-size: 0.5rem;
+  }
+  
+  /* Detailed stats sections stack vertically */
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - FINALLY STACK VERTICALLY on tiny screens */
+  .stats-grid-ds {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  
+  /* Summary */
+  .summary-details-ds h3 {
+    font-size: 0.85rem;
+  }
+  
+  .summary-stat-ds {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  /* User info minimal */
+  .user-info-ds {
+    padding: 0.4rem;
+    gap: 0.4rem;
+  }
+  
+  .user-avatar-ds {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+  }
+  
+  .user-name-ds {
+    font-size: 0.75rem;
+  }
+  
+  .user-role-ds {
+    display: none; /* Hide role on very small screens to save space */
+  }
+}
+
+/* 
+  =========================================================
+  LANDSCAPE MODE OPTIMIZATIONS
+  =========================================================
+  
+  Special adjustments for mobile devices in landscape orientation.
+*/
+
+/* Landscape mode on mobile (height < 500px) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .dashboard-ds {
+    padding: 0.8rem;
+  }
+  
+  /* Use horizontal space better in landscape */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(3, minmax(140px, 1fr)); /* 3 cards in landscape */
+    gap: 0.8rem;
+  }
+  
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr 1fr; /* Two columns in landscape */
+    gap: 1rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 3 PER ROW in landscape */
+  .stats-grid-ds {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .stat-card-ds {
+    min-height: 70px;
+    padding: 0.8rem;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.2rem;
+  }
+  
+  .stat-content-ds h3 {
+    font-size: 0.8rem;
+  }
+  
+  /* Summary section in landscape */
+  .summary-stats-ds {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  
+  /* Reduce vertical padding */
+  .today-summary-banner-ds,
+  .dashboard-card-ds,
+  .dashboard-header-ds {
+    padding: 0.8rem;
+  }
+  
+  /* Make table scrollable vertically */
+  .records-table-container {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+/* Tall mobile devices (height > 800px) */
+@media (min-height: 800px) and (max-width: 768px) {
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-card-ds {
+    min-height: 90px;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.5rem;
+  }
+}
+
+/* 
+  =========================================================
+  PRINT STYLES
+  =========================================================
+  
+  Optimizations for printing the dashboard.
+*/
+
+@media print {
+  .dashboard-ds {
+    padding: 0.5rem;
+    background: white;
+  }
+  
+  /* Hide interactive elements that aren't needed for print */
+  .refresh-btn-ds,
+  .quick-filter-btn-ds,
+  .apply-custom-filter-ds,
+  .toggle-filters-btn-ds,
+  .clear-filters-btn-ds,
+  .show-filters-btn-ds,
+  .collapse-filters-btn-ds,
+  .user-info-ds {
+    display: none !important;
+  }
+  
+  /* Optimize layout for print */
+  .statistics-cards-ds {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem;
+    page-break-inside: avoid;
+  }
+  
+  .detailed-stats-grid-ds {
+    grid-template-columns: 1fr 1fr !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 3 PER ROW for print */
+  .stats-grid-ds {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  .dashboard-card-ds {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+  }
+  
+  .today-summary-banner-ds {
+    background: #f8fafc !important;
+    color: #000;
+    border: 1px solid #ddd;
+  }
+  
+  /* Ensure tables print properly */
+  .records-table-container {
+    overflow: visible !important;
+  }
+  
+  .records-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .records-table th,
+  .records-table td {
+    padding: 4px 6px;
+    font-size: 10px;
+    border: 1px solid #ddd;
+  }
+}
+
+/* 
+  =========================================================
+  ACCESSIBILITY & PREFERENCES
+  =========================================================
+  
+  Support for user preferences like reduced motion,
+  high contrast mode, and dark mode.
+*/
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .stat-card-ds,
+  .refresh-btn-ds,
+  .quick-filter-btn-ds,
+  .stat-item-ds,
+  .status-item-ds,
+  .toggle-filters-btn-ds,
+  .clear-filters-btn-ds,
+  .show-filters-btn-ds,
+  .collapse-filters-btn-ds {
+    transition: none !important;
+  }
+  
+  .stat-card-ds:hover {
+    transform: none !important;
+  }
+  
+  .refresh-icon-ds {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .dashboard-card-ds,
+  .stat-card-ds {
+    border: 2px solid currentColor !important;
+  }
+  
+  .today-summary-banner-ds {
+    border: 2px solid currentColor;
+  }
+  
+  .stat-item-ds,
+  .status-item-ds {
+    border: 1px solid currentColor;
+  }
+  
+  .summary-stat-ds {
+    border: 1px solid currentColor;
+    background: transparent !important;
+  }
+}
+
+/* Dark mode support (optional enhancement) */
+@media (prefers-color-scheme: dark) {
+  .dashboard-ds {
+    background: #121212;
+    color: #e0e0e0;
+  }
+  
+  .dashboard-card-ds,
+  .stat-card-ds {
+    background: #1e1e1e;
+    border-color: #333;
+    color: #e0e0e0;
+  }
+  
+  .stat-value-ds {
+    color: #ffffff;
+  }
+  
+  .stat-content-ds h3,
+  .stat-label-ds,
+  .stat-subtext-ds {
+    color: #b0b0b0;
+  }
+  
+  .today-summary-banner-ds {
+    background: linear-gradient(135deg, #005a4d, #3a7a1d);
+  }
+  
+  .summary-stat-ds {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .filter-select,
+  .search-input,
+  .date-input-ds {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .quick-filter-btn-ds {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .quick-filter-btn-ds.active {
+    background: #00b09b;
+    color: white;
+  }
+}
+
+/* 
+  =========================================================
+  TOUCH DEVICE OPTIMIZATIONS
+  =========================================================
+  
+  Enhancements for better touch interaction on mobile devices.
+*/
+
+/* Larger touch targets for mobile */
+@media (max-width: 768px) {
+  .refresh-btn-ds,
+  .quick-filter-btn-ds,
+  .apply-custom-filter-ds,
+  .toggle-filters-btn-ds,
+  .clear-filters-btn-ds,
+  .show-filters-btn-ds {
+    min-height: 44px; /* Minimum touch target size recommended by accessibility guidelines */
+    padding: 12px 16px;
+  }
+  
+  .statistics-cards-ds {
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    margin: 3px;
+  }
+
+  .stat-item-ds,
+  .status-item-ds {
+    min-height: 44px;
+  }
+  
+  /* Increase spacing for touch */
+  .statistics-cards-ds,
+  .detailed-stats-grid-ds,
+  .stats-grid-ds {
+    gap: 12px;
+  }
+}
+
+/* Prevent text size adjustment on mobile */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Smooth scrolling for iOS */
+  .dashboard-ds {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Optimize for foldable devices */
+@media (max-width: 600px) and (min-height: 720px) {
+  .dashboard-ds {
+    padding: 1.5rem;
+  }
+  
+  .statistics-cards-ds {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Stat items inside Attendance/Leave sections - 2 PER ROW */
+  .stats-grid-ds {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-card-ds {
+    min-height: 90px;
+  }
+  
+  .stat-value-ds {
+    font-size: 1.6rem;
+  }
+}
+
+/* 
+  =========================================================
+  UTILITY CLASSES FOR RESPONSIVE BEHAVIOR
+  =========================================================
+  
+  Reusable utility classes for common responsive patterns.
+*/
+
+/* Hide on mobile */
+.hide-on-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-on-mobile {
+    display: block;
+  }
+  
+  .show-on-mobile {
+    display: none;
+  }
+}
+
+/* Show on mobile */
+.show-on-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .show-on-mobile {
+    display: none;
+  }
+}
+
+/* Text truncation utility */
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Scrollable container for small screens */
+.scrollable-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+/* Grid utilities */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Flex utilities */
+.flex-column-mobile {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .flex-column-mobile {
+    flex-direction: column;
+  }
+}
+
+/* Spacing utilities */
+.padding-responsive {
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .padding-responsive {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .padding-responsive {
+    padding: 0.75rem;
+  }
+}
