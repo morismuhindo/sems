@@ -24,7 +24,7 @@ const app = express();
 // Express middleware
 app.use(express.json());
 app.use(cors({
-  origin: ['https://sems-tu4u.onrender.com'],
+  origin: ['https://sems-frontend-gwy3.onrender.com'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
