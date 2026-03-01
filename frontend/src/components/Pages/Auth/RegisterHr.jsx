@@ -28,7 +28,7 @@ const RegisterHr = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("/api/registerHR", {
+      const res = await fetch("https://sems-backend-s2my.onrender.com/api/registerHR", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullname, email, password })
